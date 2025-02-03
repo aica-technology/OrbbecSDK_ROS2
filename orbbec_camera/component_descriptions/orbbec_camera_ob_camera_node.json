@@ -4,7 +4,7 @@
     "description": {
         "brief": "Stream RGB and depth images from a Orbbec camera"
     },
-    "registration": "orbbec_camera::OBCameraNode",
+    "registration": "orbbec_camera::OBCameraNodeDriver",
     "parameters": [
       {
         "display_name": "RGB width",
