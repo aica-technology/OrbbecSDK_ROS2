@@ -51,7 +51,7 @@ endif (DWARF_INCLUDE_DIR AND LIBDW_INCLUDE_DIR)
 
 find_library (LIBDW_LIBRARY
     NAMES
-      dw
+      libdw.so
     HINTS
       ${PC_LIBDW_LIBRARY_DIRS}
     PATHS
