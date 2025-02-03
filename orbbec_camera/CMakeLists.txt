@@ -57,13 +57,7 @@ endforeach ()
 
 find_package(PkgConfig REQUIRED)
 
-find_package(nlohmann_json CONFIG REQUIRED)
-
-if(NOT TARGET nlohmann_json::nlohmann_json)
-  message(STATUS "nlohmann_json target not found, adding include directory manually")
-  include_directories(/usr/include)
-endif()
-
+find_package(nlohmann_json REQUIRED)
 
 if (USE_RK_HW_DECODER)
   pkg_search_module(RK_MPP REQUIRED rockchip_mpp)
