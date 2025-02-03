@@ -58,8 +58,6 @@ endforeach ()
 find_package(PkgConfig REQUIRED)
 
 find_package(nlohmann_json REQUIRED)
-find_package(libdw REQUIRED)
-
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package (ElfUtils)
