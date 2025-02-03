@@ -123,6 +123,7 @@ set(COMMON_LIBRARIES
   Threads::Threads
   -lrt
   -ldw
+  nlohmann_json::nlohmann_json
 )
 if (USE_RK_HW_DECODER)
   list(APPEND COMMON_LIBRARIES
