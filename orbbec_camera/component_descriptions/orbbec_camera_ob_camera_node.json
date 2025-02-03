@@ -1,0 +1,90 @@
+{
+    "$schema": "https://docs.aica.tech/schemas/1-1-1/component.schema.json",
+    "name": "Orbbec Camera",
+    "description": {
+        "brief": "Stream RGB and depth images from a Orbbec camera"
+    },
+    "registration": "orbbec_camera::OBCameraNode",
+    "parameters": [
+      {
+        "display_name": "RGB width",
+        "description": "Width of the RGB image",
+        "parameter_name": "color_width",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "RGB height",
+        "description": "Height of the RGB image",
+        "parameter_name": "color_height",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Depth width",
+        "description": "Width of the depth image",
+        "parameter_name": "depth_width",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Depth height",
+        "description": "Height of the depth image",
+        "parameter_name": "depth_height",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Color format",
+        "description": "Color format of the RGB image",
+        "parameter_name": "color_format",
+        "parameter_type": "string",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Depth format",
+        "description": "Depth format of the depth image",
+        "parameter_name": "depth_format",
+        "parameter_type": "string",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Temporal filter weight",
+        "description": "Weight of the temporal filter (0 to 1.0)",
+        "parameter_name": "temporal_filter_weight",
+        "parameter_type": "double",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Alignement mode",
+        "description": "Alignement mode for depth and RGB images (HW or SW)",
+        "parameter_name": "align_mode",
+        "parameter_type": "string",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Minumum depth limit",
+        "description": "Minimum depth limit for the depth image",
+        "parameter_name": "min_depth_limit",
+        "parameter_type": "double",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Maximum depth limit",
+        "description": "Maximum depth limit for the depth image",
+        "parameter_name": "max_depth_limit",
+        "parameter_type": "double",
+        "default_value": null,
+        "optional": true
+      }
+    ]
+}

@@ -82,6 +82,8 @@ if (USE_RK_HW_DECODER)
   endif ()
 endif ()
 
+install(DIRECTORY ./component_descriptions
+        DESTINATION .)
 
 execute_process(COMMAND uname -m OUTPUT_VARIABLE MACHINES)
 execute_process(COMMAND getconf LONG_BIT OUTPUT_VARIABLE MACHINES_BIT)
