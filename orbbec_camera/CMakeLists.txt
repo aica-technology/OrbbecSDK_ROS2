@@ -49,8 +49,6 @@ set(dependencies
   diagnostic_msgs
   statistics_msgs
   backward_ros
-  nlohmann-json-dev
-  libdw-dev
 )
 
 foreach (dep IN LISTS dependencies)
@@ -59,6 +57,7 @@ endforeach ()
 
 find_package(PkgConfig REQUIRED)
 
+find_package(nlohmann_json CONFIG REQUIRED)
 
 if (USE_RK_HW_DECODER)
   pkg_search_module(RK_MPP REQUIRED rockchip_mpp)
