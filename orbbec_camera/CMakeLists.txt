@@ -22,6 +22,8 @@ elseif ("$ENV{ROS_DISTRO}" STREQUAL "iron")
   add_compile_definitions(ROS_IRON)
 endif ()
 
+set(STACK_DETAILS_AUTO_DETECT FALSE)
+
 # find dependencies
 set(dependencies
   ament_cmake
@@ -58,9 +60,6 @@ endforeach ()
 find_package(PkgConfig REQUIRED)
 
 find_package(nlohmann_json REQUIRED)
-
-list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-find_package (ElfUtils)
 
 if (USE_RK_HW_DECODER)
   pkg_search_module(RK_MPP REQUIRED rockchip_mpp)
@@ -125,7 +124,6 @@ set(COMMON_LIBRARIES
   -L${ORBBEC_LIBS_DIR}
   Threads::Threads
   -lrt
-  ${LIBDW_LIBRARIES}
   nlohmann_json::nlohmann_json
 )
 if (USE_RK_HW_DECODER)
