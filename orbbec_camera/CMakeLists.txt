@@ -22,7 +22,6 @@ elseif ("$ENV{ROS_DISTRO}" STREQUAL "iron")
   add_compile_definitions(ROS_IRON)
 endif ()
 
-set(STACK_DETAILS_AUTO_DETECT FALSE)
 
 # find dependencies
 set(dependencies
@@ -50,7 +49,6 @@ set(dependencies
   diagnostic_updater
   diagnostic_msgs
   statistics_msgs
-  backward_ros
 )
 
 foreach (dep IN LISTS dependencies)
@@ -60,6 +58,11 @@ endforeach ()
 find_package(PkgConfig REQUIRED)
 
 find_package(nlohmann_json REQUIRED)
+
+SET(_BK_CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
+SET(CMAKE_FIND_LIBRARY_SUFFIXES ".so")
+find_package(backward_ros REQUIRED)
+SET(CMAKE_FIND_LIBRARY_SUFFIXES ${_BK_CMAKE_FIND_LIBRARY_SUFFIXES})
 
 if (USE_RK_HW_DECODER)
   pkg_search_module(RK_MPP REQUIRED rockchip_mpp)
