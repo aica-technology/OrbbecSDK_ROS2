@@ -49,9 +49,7 @@ set(dependencies
   diagnostic_msgs
   statistics_msgs
   backward_ros
-  libgflags-dev
   nlohmann-json-dev
-  libgoogle-glog-dev
   libdw-dev
 )
 
