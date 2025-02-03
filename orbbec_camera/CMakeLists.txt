@@ -49,20 +49,26 @@ set(dependencies
   diagnostic_updater
   diagnostic_msgs
   statistics_msgs
+  # backward_ros # See below
+  nlohmann_json
 )
 
 foreach (dep IN LISTS dependencies)
   find_package(${dep} REQUIRED)
 endforeach ()
 
-find_package(PkgConfig REQUIRED)
-
-find_package(nlohmann_json REQUIRED)
-
+# due to package-builder's setup, we need to force the suffix
+# so we can find the global dw shared library instead of the scoped static one
+# this is because libdw is already installed globally and doesn't get picked up by our isolation system
 SET(_BK_CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
-SET(CMAKE_FIND_LIBRARY_SUFFIXES ".so")
+SET(CMAKE_FIND_LIBRARY_SUFFIXES "-0.190.so" ".so")
 find_package(backward_ros REQUIRED)
 SET(CMAKE_FIND_LIBRARY_SUFFIXES ${_BK_CMAKE_FIND_LIBRARY_SUFFIXES})
+# this is required for ament and such
+list(APPEND dependencies backward_ros)
+
+find_package(PkgConfig REQUIRED)
+
 
 if (USE_RK_HW_DECODER)
   pkg_search_module(RK_MPP REQUIRED rockchip_mpp)
@@ -117,6 +123,7 @@ set(COMMON_INCLUDE_DIRS
   ${ORBBEC_INCLUDE_DIR}
   ${OpenCV_INCLUDED_DIRS}
   ${CMAKE_CURRENT_SOURCE_DIR}/tools
+  ${BACKWARD_INCLUDE_DIRS}
 )
 
 set(COMMON_LIBRARIES
@@ -127,6 +134,7 @@ set(COMMON_LIBRARIES
   -L${ORBBEC_LIBS_DIR}
   Threads::Threads
   -lrt
+  ${BACKWARD_LIBRARIES}
   nlohmann_json::nlohmann_json
 )
 if (USE_RK_HW_DECODER)
