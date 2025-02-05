@@ -25,16 +25,14 @@
         "description": "Width of the RGB image",
         "parameter_name": "color_width",
         "parameter_type": "int",
-        "default_value": null,
-        "optional": true
+        "default_value": "424"
       },
       {
         "display_name": "RGB height",
         "description": "Height of the RGB image",
         "parameter_name": "color_height",
         "parameter_type": "int",
-        "default_value": null,
-        "optional": true
+        "default_value": "240"
       },
       {
         "display_name": "Depth width",
@@ -52,7 +50,7 @@
       },
       {
         "display_name": "Color format",
-        "description": "Color format of the RGB image",
+        "description": "format of the RGB image",
         "parameter_name": "color_format",
         "parameter_type": "string",
         "default_value": null,
@@ -60,7 +58,7 @@
       },
       {
         "display_name": "Depth format",
-        "description": "Depth format of the depth image",
+        "description": "Format of the depth image",
         "parameter_name": "depth_format",
         "parameter_type": "string",
         "default_value": "Y16"
@@ -85,14 +83,16 @@
         "description": "Minimum depth limit for the depth image",
         "parameter_name": "min_depth_limit",
         "parameter_type": "int",
-        "default_value": "0"
+        "default_value": null,
+        "optional": true
       },
       {
         "display_name": "Maximum depth limit",
         "description": "Maximum depth limit for the depth image",
         "parameter_name": "max_depth_limit",
         "parameter_type": "int",
-        "default_value": "0"
+        "default_value": null,
+        "optional": true
       }
     ],
     "outputs": [
