@@ -11,7 +11,14 @@
         "description": "Enable the color stream",
         "parameter_name": "enable_color",
         "parameter_type": "bool",
-        "default_value": "true"
+        "default_value": "false"
+      },
+      {
+        "display_name": "Enable Temporal Filter",
+        "description": "Enable the temporal filter for the depth image",
+        "parameter_name": "enable_temporal_filter",
+        "parameter_type": "bool",
+        "default_value": "false"
       },
       {
         "display_name": "RGB width",
@@ -34,16 +41,14 @@
         "description": "Width of the depth image",
         "parameter_name": "depth_width",
         "parameter_type": "int",
-        "default_value": null,
-        "optional": true
+        "default_value": "424"
       },
       {
         "display_name": "Depth height",
         "description": "Height of the depth image",
         "parameter_name": "depth_height",
         "parameter_type": "int",
-        "default_value": null,
-        "optional": true
+        "default_value": "240"
       },
       {
         "display_name": "Color format",
@@ -58,8 +63,7 @@
         "description": "Depth format of the depth image",
         "parameter_name": "depth_format",
         "parameter_type": "string",
-        "default_value": null,
-        "optional": true
+        "default_value": "Y16"
       },
       {
         "display_name": "Temporal filter weight",
@@ -74,24 +78,55 @@
         "description": "Alignement mode for depth and RGB images (HW or SW)",
         "parameter_name": "align_mode",
         "parameter_type": "string",
-        "default_value": null,
-        "optional": true
+        "default_value": "HW"
       },
       {
         "display_name": "Minumum depth limit",
         "description": "Minimum depth limit for the depth image",
         "parameter_name": "min_depth_limit",
-        "parameter_type": "double",
-        "default_value": null,
-        "optional": true
+        "parameter_type": "int",
+        "default_value": "0"
       },
       {
         "display_name": "Maximum depth limit",
         "description": "Maximum depth limit for the depth image",
         "parameter_name": "max_depth_limit",
-        "parameter_type": "double",
-        "default_value": null,
-        "optional": true
+        "parameter_type": "int",
+        "default_value": "0"
+      }
+    ],
+    "outputs": [
+      {
+        "display_name": "RGB Image",
+        "description": "Raw color image stream",
+        "signal_name": "color_image_raw",
+        "default_topic": "/color/image_raw",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::Image"
+      },
+      {
+        "display_name": "Depth Image",
+        "description": "Raw depth image stream",
+        "default_topic": "/depth/image_raw",
+        "signal_name": "depth_image_raw",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::Image"
+      },
+      {
+        "display_name": "RGB Camera Info",
+        "description": "RGB camera intrinsics",
+        "default_topic": "/color/camera_info",
+        "signal_name": "rgb_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
+      },
+      {
+        "display_name": "Depth Camera Info",
+        "description": "Depth camera intrinsics",
+        "default_topic": "/depth/camera_info",
+        "signal_name": "depth_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
       }
     ]
 }
