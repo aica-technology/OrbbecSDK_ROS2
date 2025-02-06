@@ -21,6 +21,13 @@
         "default_value": "false"
       },
       {
+        "display_name": "Enable Alignement",
+        "description": "Enable the alignement of the depth and RGB images",
+        "parameter_name": "depth_registration",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
         "display_name": "RGB width",
         "description": "Width of the RGB image",
         "parameter_name": "color_width",
