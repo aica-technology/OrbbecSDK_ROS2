@@ -1330,7 +1330,7 @@ void OBCameraNode::setupPublishers() {
 
     std::string camera_info_topic;
     topic = name + "_camera_info";
-    setAndGetNodeParameter<std::string>(camera_info_topic, topic + "_topic", "~" + topic);
+    setAndGetNodeParameter<std::string>(camera_info_topic, topic + "_topic", "~/" + topic);
 
     auto camera_info_qos = camera_info_qos_[stream_index];
     auto camera_info_qos_profile = getRMWQosProfileFromString(camera_info_qos);
@@ -1343,7 +1343,7 @@ void OBCameraNode::setupPublishers() {
     if (isGemini335PID(pid)) {
       std::string metadata_topic;
       topic = name + "_metadata";
-      setAndGetNodeParameter<std::string>(metadata_topic, topic + "_topic", "~" + topic);
+      setAndGetNodeParameter<std::string>(metadata_topic, topic + "_topic", "~/" + topic);
 
       metadata_publishers_[stream_index] =
           node_->create_publisher<orbbec_camera_msgs::msg::Metadata>(
