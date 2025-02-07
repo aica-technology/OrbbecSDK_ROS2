@@ -1313,7 +1313,7 @@ void OBCameraNode::setupPublishers() {
     std::string topic = name + "_image";
     std::string image_topic;
 
-    setAndGetNodeParameter<std::string>(image_topic, topic + "_topic", "~" + topic);
+    setAndGetNodeParameter<std::string>(image_topic, topic + "_topic", "~/" + topic);
 
     auto image_qos = image_qos_[stream_index];
     auto image_qos_profile = getRMWQosProfileFromString(image_qos);
