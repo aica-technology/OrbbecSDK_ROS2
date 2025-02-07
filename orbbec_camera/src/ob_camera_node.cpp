@@ -1311,7 +1311,7 @@ void OBCameraNode::setupPublishers() {
     }
     std::string name = stream_name_[stream_index];
     std::string topic = name + "_image";
-    auto image_topic = _node.declare_parameter<std::string>(topic + "_topic", topic).get<rclcpp::PARAMETER_STRING>();
+    auto image_topic = _node.declare_parameter<std::string>(topic + "_topic", topic);
     auto image_qos = image_qos_[stream_index];
     auto image_qos_profile = getRMWQosProfileFromString(image_qos);
     if (use_intra_process_) {
@@ -1326,7 +1326,7 @@ void OBCameraNode::setupPublishers() {
     }
 
     topic = name + "_camera_info";
-    auto camera_info_topic = _node.declare_parameter<std::string>(topic + "_topic", topic).get<rclcpp::PARAMETER_STRING>();
+    auto camera_info_topic = _node.declare_parameter<std::string>(topic + "_topic", topic);
     auto camera_info_qos = camera_info_qos_[stream_index];
     auto camera_info_qos_profile = getRMWQosProfileFromString(camera_info_qos);
     if (use_intra_process_) {
