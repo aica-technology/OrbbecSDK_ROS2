@@ -1310,7 +1310,8 @@ void OBCameraNode::setupPublishers() {
       continue;
     }
     std::string name = stream_name_[stream_index];
-    std::string topic = name + "/image_raw";
+    std::string topic = name + "_image";
+    auto image_topic = _node.declare_parameter<std::string>(topic + "_topic", topic).get<rclcpp::PARAMETER_STRING>();
     auto image_qos = image_qos_[stream_index];
     auto image_qos_profile = getRMWQosProfileFromString(image_qos);
     if (use_intra_process_) {
@@ -1318,20 +1319,21 @@ void OBCameraNode::setupPublishers() {
     }
     if (use_intra_process_) {
       image_publishers_[stream_index] =
-          std::make_shared<image_rcl_publisher>(*node_, topic, image_qos_profile);
+          std::make_shared<image_rcl_publisher>(*node_, image_topic, image_qos_profile);
     } else {
       image_publishers_[stream_index] =
-          std::make_shared<image_transport_publisher>(*node_, topic, image_qos_profile);
+          std::make_shared<image_transport_publisher>(*node_, image_topic, image_qos_profile);
     }
 
-    topic = name + "/camera_info";
+    topic = name + "_camera_info";
+    auto camera_info_topic = _node.declare_parameter<std::string>(topic + "_topic", topic).get<rclcpp::PARAMETER_STRING>();
     auto camera_info_qos = camera_info_qos_[stream_index];
     auto camera_info_qos_profile = getRMWQosProfileFromString(camera_info_qos);
     if (use_intra_process_) {
       camera_info_qos_profile = rmw_qos_profile_default;
     }
     camera_info_publishers_[stream_index] = node_->create_publisher<CameraInfo>(
-        topic, rclcpp::QoS(rclcpp::QoSInitialization::from_rmw(camera_info_qos_profile),
+        camera_info_topic, rclcpp::QoS(rclcpp::QoSInitialization::from_rmw(camera_info_qos_profile),
                            camera_info_qos_profile));
     if (isGemini335PID(pid)) {
       metadata_publishers_[stream_index] =
