@@ -57,7 +57,7 @@
       },
       {
         "display_name": "Color format",
-        "description": "format of the RGB image",
+        "description": "Format of the RGB image",
         "parameter_name": "color_format",
         "parameter_type": "string",
         "default_value": null,

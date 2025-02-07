@@ -22,7 +22,6 @@ elseif ("$ENV{ROS_DISTRO}" STREQUAL "iron")
   add_compile_definitions(ROS_IRON)
 endif ()
 
-
 # find dependencies
 set(dependencies
   ament_cmake
