@@ -987,7 +987,7 @@ void OBCameraNode::getParameters() {
     param_name = stream_name_[stream_index] + "_fps";
     setAndGetNodeParameter(fps_[stream_index], param_name, 0);
     param_name = "enable_" + stream_name_[stream_index];
-    if (stream_index == DEPTH) {
+    if (stream_index == DEPTH || steam_index == COLOR) {
       setAndGetNodeParameter(enable_stream_[stream_index], param_name, true);
     } else {
       setAndGetNodeParameter(enable_stream_[stream_index], param_name, false);
@@ -1431,7 +1431,7 @@ void OBCameraNode::setupPublishers() {
             "/" + camera_name_ + "/depth_to_gyro", extrinsics_qos);
   }
   filter_status_pub_ =
-      node_->create_publisher<std_msgs::msg::String>("depth_filter_status", extrinsics_qos);
+      node_->create_publisher<std_msgs::msg::String>("~/depth_filter_status", extrinsics_qos);
   std_msgs::msg::String msg;
   msg.data = filter_status_.dump(2);
   filter_status_pub_->publish(msg);
