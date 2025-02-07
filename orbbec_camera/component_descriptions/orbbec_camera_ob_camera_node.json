@@ -123,6 +123,13 @@
         "signal_name": "color_camera_info",
         "signal_type": "other",
         "custom_signal_type": "sensor_msgs::msg::CameraInfo"
+      },
+      {
+        "display_name": "Depth Camera Info",
+        "description": "Depth camera intrinsics",
+        "signal_name": "depth_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
       }
     ]
 }
