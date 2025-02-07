@@ -7,13 +7,6 @@
     "registration": "orbbec_camera::OBCameraNodeDriver",
     "parameters": [
       {
-        "display_name": "Enable Color Stream",
-        "description": "Enable the color stream",
-        "parameter_name": "enable_color",
-        "parameter_type": "bool",
-        "default_value": "false"
-      },
-      {
         "display_name": "Enable Temporal Filter",
         "description": "Enable the temporal filter for the depth image",
         "parameter_name": "enable_temporal_filter",
