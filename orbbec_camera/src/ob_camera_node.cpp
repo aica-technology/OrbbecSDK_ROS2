@@ -987,7 +987,7 @@ void OBCameraNode::getParameters() {
     param_name = stream_name_[stream_index] + "_fps";
     setAndGetNodeParameter(fps_[stream_index], param_name, 0);
     param_name = "enable_" + stream_name_[stream_index];
-    if (stream_index == DEPTH || steam_index == COLOR) {
+    if (stream_index == DEPTH || stream_index == COLOR) {
       setAndGetNodeParameter(enable_stream_[stream_index], param_name, true);
     } else {
       setAndGetNodeParameter(enable_stream_[stream_index], param_name, false);
