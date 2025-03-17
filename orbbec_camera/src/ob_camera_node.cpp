@@ -1314,7 +1314,7 @@ void OBCameraNode::getParameters() {
     param_name = stream_name_[stream_index] + "_fps";
     setAndGetNodeParameter(fps_[stream_index], param_name, 0);
     param_name = "enable_" + stream_name_[stream_index];
-    if (stream_index == DEPTH) {
+    if (stream_index == DEPTH || stream_index == COLOR) {
       setAndGetNodeParameter(enable_stream_[stream_index], param_name, true);
     } else {
       setAndGetNodeParameter(enable_stream_[stream_index], param_name, false);
@@ -1703,7 +1703,11 @@ void OBCameraNode::setupPublishers() {
       continue;
     }
     std::string name = stream_name_[stream_index];
-    std::string topic = name + "/image_raw";
+    std::string topic = name + "_image";
+    std::string image_topic;
+
+    setAndGetNodeParameter<std::string>(image_topic, topic + "_topic", "~/" + topic);
+
     auto image_qos = image_qos_[stream_index];
     auto image_qos_profile = getRMWQosProfileFromString(image_qos);
     if (use_intra_process_) {
@@ -1711,25 +1715,32 @@ void OBCameraNode::setupPublishers() {
     }
     if (use_intra_process_) {
       image_publishers_[stream_index] =
-          std::make_shared<image_rcl_publisher>(*node_, topic, image_qos_profile);
+          std::make_shared<image_rcl_publisher>(*node_, image_topic, image_qos_profile);
     } else {
       image_publishers_[stream_index] =
-          std::make_shared<image_transport_publisher>(*node_, topic, image_qos_profile);
+          std::make_shared<image_transport_publisher>(*node_, image_topic, image_qos_profile);
     }
 
-    topic = name + "/camera_info";
+    std::string camera_info_topic;
+    topic = name + "_camera_info";
+    setAndGetNodeParameter<std::string>(camera_info_topic, topic + "_topic", "~/" + topic);
+
     auto camera_info_qos = camera_info_qos_[stream_index];
     auto camera_info_qos_profile = getRMWQosProfileFromString(camera_info_qos);
     if (use_intra_process_) {
       camera_info_qos_profile = rmw_qos_profile_default;
     }
     camera_info_publishers_[stream_index] = node_->create_publisher<CameraInfo>(
-        topic, rclcpp::QoS(rclcpp::QoSInitialization::from_rmw(camera_info_qos_profile),
+        camera_info_topic, rclcpp::QoS(rclcpp::QoSInitialization::from_rmw(camera_info_qos_profile),
                            camera_info_qos_profile));
     if (isGemini335PID(pid)) {
+      std::string metadata_topic;
+      topic = name + "_metadata";
+      setAndGetNodeParameter<std::string>(metadata_topic, topic + "_topic", "~/" + topic);
+
       metadata_publishers_[stream_index] =
           node_->create_publisher<orbbec_camera_msgs::msg::Metadata>(
-              name + "/metadata",
+              metadata_topic,
               rclcpp::QoS(rclcpp::QoSInitialization::from_rmw(camera_info_qos_profile),
                           camera_info_qos_profile));
     }
@@ -1812,7 +1823,7 @@ void OBCameraNode::setupPublishers() {
             "/" + camera_name_ + "/depth_to_gyro", extrinsics_qos);
   }
   filter_status_pub_ =
-      node_->create_publisher<std_msgs::msg::String>("depth_filter_status", extrinsics_qos);
+      node_->create_publisher<std_msgs::msg::String>("~/depth_filter_status", extrinsics_qos);
   std_msgs::msg::String msg;
   msg.data = filter_status_.dump(2);
   filter_status_pub_->publish(msg);
