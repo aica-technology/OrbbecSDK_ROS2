@@ -84,6 +84,132 @@
         "parameter_name": "align_mode",
         "parameter_type": "string",
         "default_value": "HW"
+      },
+      {
+        "display_name": "Alignment Target Stream",
+        "description": "Target stream to align with (COLOR or DEPTH)",
+        "parameter_name": "align_target_stream",
+        "parameter_type": "string",
+        "default_value": "COLOR",
+        "internal": true
+      },
+      {
+        "display_name": "Enable Threshold Filter",
+        "description": "Enable the depth threshold filter (if enabled, set threshold_filter_max and threshold_filter_min)",
+        "parameter_name": "enable_threshold_filter",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Threshold Filter Max",
+        "description": "Max value of the threshold filter [mm]",
+        "parameter_name": "threshold_filter_max",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Threshold Filter Min",
+        "description": "Min value of the threshold filter [mm]",
+        "parameter_name": "threshold_filter_min",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Enable Temporal Filter",
+        "description": "Enable the depth temporal filter (if enabled, set temporal_filter_diff_threshold and temporal_filter_weight)",
+        "parameter_name": "enable_temporal_filter",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Temporal Filter Weight",
+        "description": "Weight of the temporal filter",
+        "parameter_name": "temporal_filter_weight",
+        "parameter_type": "double",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Temporal Filter Diff Threshold",
+        "description": "Diff threshold of the temporal filter",
+        "parameter_name": "temporal_filter_diff_threshold",
+        "parameter_type": "double",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Enable Noise Removal Filter",
+        "description": "Enable the depth noise removal filter (if enabled, set noise_removal_filter_min_diff and noise_removal_filter_max_size)",
+        "parameter_name": "enable_noise_removal_filter",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Noise Removal Filter Min Diff",
+        "description": "Minimum difference for the noise removal filter",
+        "parameter_name": "noise_removal_filter_min_diff",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Noise Removal Filter Max Size",
+        "description": "Maximum size for the noise removal filter",
+        "parameter_name": "noise_removal_filter_max_size",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Enable Spatial Filter",
+        "description": "Enable the depth spatial filter (if enabled, set spatial_filter_alpha, spatial_filter_diff_threshold, spatial_filter_magnitude, spatial_filter_radius)",
+        "parameter_name": "enable_spatial_filter",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Spatial Filter Alpha",
+        "description": "Alpha value for the spatial filter",
+        "parameter_name": "spatial_filter_alpha",
+        "parameter_type": "double",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Spatial Filter Diff Threshold",
+        "description": "Diff threshold for the spatial filter",
+        "parameter_name": "spatial_filter_diff_threshold",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Spatial Filter Magnitude",
+        "description": "Magnitude for the spatial filter",
+        "parameter_name": "spatial_filter_magnitude",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true,
+        "internal": true
+      },
+      {
+        "display_name": "Spatial Filter Radius",
+        "description": "Radius for the spatial filter",
+        "parameter_name": "spatial_filter_radius",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true,
+        "internal": true
       }
     ],
     "outputs": [
