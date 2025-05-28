@@ -1,0 +1,119 @@
+{
+    "$schema": "https://docs.aica.tech/schemas/1-1-1/component.schema.json",
+    "name": "Orbbec Camera",
+    "description": {
+        "brief": "Stream color and depth images from an Orbbec camera"
+    },
+    "inherits": "rclcpp::Node",
+    "registration": "orbbec_camera::OBCameraNodeDriver",
+    "parameters": [
+      {
+        "display_name": "Color Width",
+        "description": "Width of the color image",
+        "parameter_name": "color_width",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Color Height",
+        "description": "Height of the color image",
+        "parameter_name": "color_height",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Color FPS",
+        "description": "Frames per second of the color stream",
+        "parameter_name": "color_fps",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Color Format",
+        "description": "Format of the color image",
+        "parameter_name": "color_format",
+        "parameter_type": "string",
+        "default_value": "MJPG",
+        "internal": true
+      },
+      {
+        "display_name": "Depth Width",
+        "description": "Width of the depth image",
+        "parameter_name": "depth_width",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Depth Height",
+        "description": "Height of the depth image",
+        "parameter_name": "depth_height",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Depth FPS",
+        "description": "Frames per second of the depth stream",
+        "parameter_name": "depth_fps",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Depth Format",
+        "description": "Format of the depth image",
+        "parameter_name": "depth_format",
+        "parameter_type": "string",
+        "default_value": "Y16",
+        "internal": true
+      },
+      {
+        "display_name": "Enable Alignement",
+        "description": "Enable the alignement of the color and depth image",
+        "parameter_name": "depth_registration",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Alignement Mode",
+        "description": "Alignement mode for color and depth image (HW or SW)",
+        "parameter_name": "align_mode",
+        "parameter_type": "string",
+        "default_value": "HW"
+      }
+    ],
+    "outputs": [
+      {
+        "display_name": "Color Image",
+        "description": "Raw color image stream",
+        "signal_name": "color_image",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::Image"
+      },
+      {
+        "display_name": "Color Camera Info",
+        "description": "Color camera intrinsics",
+        "signal_name": "color_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
+      },
+      {
+        "display_name": "Depth Image",
+        "description": "Depth image stream, which is aligned with the color image if enabled",
+        "signal_name": "depth_image",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::Image"
+      },
+      {
+        "display_name": "Depth Camera Info",
+        "description": "Depth camera intrinsics",
+        "signal_name": "depth_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
+      }
+    ]
+}
