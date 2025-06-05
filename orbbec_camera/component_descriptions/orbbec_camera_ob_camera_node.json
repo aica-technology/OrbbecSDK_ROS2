@@ -15,7 +15,7 @@
         "default_value": "camera"
       },
       {
-        "display_name": "Camera Serial Number",
+        "display_name": "Serial Number",
         "description": "Serial number of the camera, required when using multiple cameras",
         "parameter_name": "serial_number",
         "parameter_type": "string",
