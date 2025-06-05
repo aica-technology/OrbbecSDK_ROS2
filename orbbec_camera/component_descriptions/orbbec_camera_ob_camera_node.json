@@ -2,11 +2,41 @@
     "$schema": "https://docs.aica.tech/schemas/1-1-1/component.schema.json",
     "name": "Orbbec Camera",
     "description": {
-        "brief": "Stream color and depth images from an Orbbec camera"
+        "brief": "Stream color and depth images from an Orbbec camera."
     },
     "inherits": "rclcpp::Node",
     "registration": "orbbec_camera::OBCameraNodeDriver",
     "parameters": [
+      {
+        "display_name": "Camera Name",
+        "description": "Name of the camera (TODO)",
+        "parameter_name": "camera_name",
+        "parameter_type": "string",
+        "default_value": "camera"
+      },
+      {
+        "display_name": "Camera Serial Number",
+        "description": "Serial number of the camera, required when using multiple cameras",
+        "parameter_name": "serial_number",
+        "parameter_type": "string",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "USB Port",
+        "description": "USB port of the camera, required when using multiple cameras",
+        "parameter_name": "usb_port",
+        "parameter_type": "string",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Number of Devices",
+        "description": "Number of devices, required when using multiple cameras",
+        "parameter_name": "device_num",
+        "parameter_type": "int",
+        "default_value": "1"
+      },
       {
         "display_name": "Color Width",
         "description": "Width of the color image",
