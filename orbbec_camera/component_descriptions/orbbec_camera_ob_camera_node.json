@@ -9,7 +9,7 @@
     "parameters": [
       {
         "display_name": "Camera Name",
-        "description": "Name of the camera (TODO)",
+        "description": "Name of the camera, used to set the frame names",
         "parameter_name": "camera_name",
         "parameter_type": "string",
         "default_value": "camera"
