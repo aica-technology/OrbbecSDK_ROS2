@@ -253,7 +253,7 @@
         "description": "Mode for the hole filling filter. Choose between Hole Fill Top, Hole Fill Nearest, Hole Fill Farest.",
         "parameter_name": "hole_filling_filter_mode",
         "parameter_type": "string",
-        "default_value": "Hole Fill Top",
+        "default_value": "FILL_TOP",
         "internal": true
       }      
     ],
