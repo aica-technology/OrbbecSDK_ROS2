@@ -243,14 +243,14 @@
       },
       {
         "display_name": "Enable Hole Filling Filter",
-        "description": "Enable the hole filling filter (if enabled, set the hole_filling_filter_mode)",
+        "description": "Enable the hole filling filter (if enabled, optionally set the hole_filling_filter_mode)",
         "parameter_name": "enable_hole_filling_filter",
         "parameter_type": "bool",
         "default_value": "false"
       },
       {
         "display_name": "Hole Filling Filter Mode",
-        "description": "Mode for the hole filling filter. Choose between Hole Fill Top, Hole Fill Nearest, Hole Fill Farest.",
+        "description": "Mode for the hole filling filter. Choose between FILL_TOP, FILL_NEAREST, FILL_FAREST.",
         "parameter_name": "hole_filling_filter_mode",
         "parameter_type": "string",
         "default_value": "FILL_TOP",
