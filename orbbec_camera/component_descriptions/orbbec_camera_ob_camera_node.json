@@ -2,8 +2,8 @@
     "$schema": "https://docs.aica.tech/schemas/1-1-1/component.schema.json",
     "name": "Orbbec Camera",
     "description": {
-        "brief": "Stream color and depth images from an Orbbec camera.",
-        "details": "This component launches a camera node, that allows streaming of color and depth images from an Orbbec camera. Please check your camera's documentation for the available resolution, formats and frame rates. The provided parameters allow to activate several different filters, which in turn allow and require the definition of their own dedicated parameters. For more information on what should be defined, please check the individual filter descriptions."
+        "brief": "Stream color and depth images from an Orbbec camera",
+        "details": "This component launches a camera node, that allows streaming of color and depth images from an Orbbec camera. Please check your camera's documentation for the available resolutions, formats and frame rates. The provided parameters allow to activate several different filters, which in turn allow and may -optionally- require the definition of their own dedicated parameters. For more information on what should be defined, please check the individual filter descriptions."
     },
     "inherits": "rclcpp::Node",
     "registration": "orbbec_camera::OBCameraNodeDriver",
@@ -40,7 +40,7 @@
       },
       {
         "display_name": "Color Width",
-        "description": "Width of the color image. Valid resolution should be one of (1280x800, 1280x720, 640x480, 640x400, 424x240).",
+        "description": "Width of the color image. Check the camera's documentation for the available resolution profiles.",
         "parameter_name": "color_width",
         "parameter_type": "int",
         "default_value": null,
@@ -48,7 +48,7 @@
       },
       {
         "display_name": "Color Height",
-        "description": "Height of the color image. Check the color width for the available resolution pair values.",
+        "description": "Height of the color image. Check the camera's documentation for the available resolution profiles.",
         "parameter_name": "color_height",
         "parameter_type": "int",
         "default_value": null,
@@ -56,7 +56,7 @@
       },
       {
         "display_name": "Color FPS",
-        "description": "Frames per second of the color stream (5, 10, 15).",
+        "description": "Frames per second of the color stream. Check the camera's documentation for the available frame rates.",
         "parameter_name": "color_fps",
         "parameter_type": "int",
         "default_value": null,
@@ -72,7 +72,7 @@
       },
       {
         "display_name": "Depth Width",
-        "description": "Width of the depth image. Valid resolution should be one of (1280x800, 1280x720, 848x480, 640x480, 640x400, 640x360, 480x270).",
+        "description": "Width of the depth image. Check the camera's documentation for the available resolution profiles.",
         "parameter_name": "depth_width",
         "parameter_type": "int",
         "default_value": null,
@@ -80,7 +80,7 @@
       },
       {
         "display_name": "Depth Height",
-        "description": "Height of the depth image. Check the depth width for the available resolution pair values.",
+        "description": "Height of the depth image. Check the camera's documentation for the available resolution profiles.",
         "parameter_name": "depth_height",
         "parameter_type": "int",
         "default_value": null,
@@ -88,7 +88,7 @@
       },
       {
         "display_name": "Depth FPS",
-        "description": "Frames per second of the depth stream (5)",
+        "description": "Frames per second of the depth stream. Check the camera's documentation for the available frame rates.",
         "parameter_name": "depth_fps",
         "parameter_type": "int",
         "default_value": null,
@@ -133,7 +133,7 @@
       },
       {
         "display_name": "Threshold Filter Max",
-        "description": "Max value of the threshold filter [mm]. Values in [0, 16000].",
+        "description": "Max value of the threshold filter (between 0 and 16000) [mm]. Remember to account for the minimum Z depth, check the documentation for more details.",
         "parameter_name": "threshold_filter_max",
         "parameter_type": "int",
         "default_value": null,
@@ -142,7 +142,7 @@
       },
       {
         "display_name": "Threshold Filter Min",
-        "description": "Min value of the threshold filter [mm]. Values in [0, 16000], account for the minimum Z depth.",
+        "description": "Min value of the threshold filter (between 0 and 16000) [mm]. Remember to account for the minimum Z depth, check the documentation for more details.",
         "parameter_name": "threshold_filter_min",
         "parameter_type": "int",
         "default_value": null,
@@ -158,7 +158,7 @@
       },
       {
         "display_name": "Temporal Filter Weight",
-        "description": "Weight for the current frame value [0.1, 1]",
+        "description": "Weight for the current frame value (between 0.1 and 1)",
         "parameter_name": "temporal_filter_weight",
         "parameter_type": "double",
         "default_value": null,
@@ -167,7 +167,7 @@
       },
       {
         "display_name": "Temporal Filter Diff Threshold",
-        "description": "Threshold for the non-motion noise [0.1, 1]",
+        "description": "Threshold for the non-motion noise (between 0.1 and 1)",
         "parameter_name": "temporal_filter_diff_threshold",
         "parameter_type": "double",
         "default_value": null,
@@ -183,7 +183,7 @@
       },
       {
         "display_name": "Noise Removal Filter Min Diff",
-        "description": "Minimum depth difference [1, 10000]",
+        "description": "Minimum depth difference (between 1 and 10000)",
         "parameter_name": "noise_removal_filter_min_diff",
         "parameter_type": "int",
         "default_value": null,
@@ -192,7 +192,7 @@
       },
       {
         "display_name": "Noise Removal Filter Max Size",
-        "description": "Maximum size of noise cluster [1, 1000]",
+        "description": "Maximum size of noise cluster (between 1 and 1000)",
         "parameter_name": "noise_removal_filter_max_size",
         "parameter_type": "int",
         "default_value": null,
@@ -208,7 +208,7 @@
       },
       {
         "display_name": "Spatial Filter Alpha",
-        "description": "Weight for the current pixel value [0.1, 1]",
+        "description": "Weight for the current pixel value (between 0.1 and 1)",
         "parameter_name": "spatial_filter_alpha",
         "parameter_type": "double",
         "default_value": null,
@@ -217,7 +217,7 @@
       },
       {
         "display_name": "Spatial Filter Diff Threshold",
-        "description": "Threshold for non-edge transitions [1, 10000]",
+        "description": "Threshold for non-edge transitions (between 1 and 10000)",
         "parameter_name": "spatial_filter_diff_threshold",
         "parameter_type": "int",
         "default_value": null,
@@ -226,7 +226,7 @@
       },
       {
         "display_name": "Spatial Filter Magnitude",
-        "description": "Number of filtering iterations [1, 5]",
+        "description": "Number of filtering iterations (between 1 and 5)",
         "parameter_name": "spatial_filter_magnitude",
         "parameter_type": "int",
         "default_value": null,
@@ -235,7 +235,7 @@
       },
       {
         "display_name": "Spatial Filter Radius",
-        "description": "Maximum radius of holes in depth image to be filled [0, 8]",
+        "description": "Maximum radius of holes in depth image to be filled (between 0 and 8) [pixel(s)]",
         "parameter_name": "spatial_filter_radius",
         "parameter_type": "int",
         "default_value": null,
