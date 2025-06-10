@@ -39,7 +39,7 @@
       },
       {
         "display_name": "Color Width",
-        "description": "Width of the color image",
+        "description": "Width of the color image. Valid resolution should be one of (1280x800, 1280x720, 640x480, 640x400, 424x240).",
         "parameter_name": "color_width",
         "parameter_type": "int",
         "default_value": null,
@@ -47,7 +47,7 @@
       },
       {
         "display_name": "Color Height",
-        "description": "Height of the color image",
+        "description": "Height of the color image. Check the color width for the available resolution pair values.",
         "parameter_name": "color_height",
         "parameter_type": "int",
         "default_value": null,
@@ -55,7 +55,7 @@
       },
       {
         "display_name": "Color FPS",
-        "description": "Frames per second of the color stream",
+        "description": "Frames per second of the color stream (5, 10, 15).",
         "parameter_name": "color_fps",
         "parameter_type": "int",
         "default_value": null,
@@ -71,7 +71,7 @@
       },
       {
         "display_name": "Depth Width",
-        "description": "Width of the depth image",
+        "description": "Width of the depth image. Valid resolution should be one of (1280x800, 1280x720, 848x480, 640x480, 640x400, 640x360, 480x270).",
         "parameter_name": "depth_width",
         "parameter_type": "int",
         "default_value": null,
@@ -79,7 +79,7 @@
       },
       {
         "display_name": "Depth Height",
-        "description": "Height of the depth image",
+        "description": "Height of the depth image. Check the depth width for the available resolution pair values.",
         "parameter_name": "depth_height",
         "parameter_type": "int",
         "default_value": null,
@@ -87,7 +87,7 @@
       },
       {
         "display_name": "Depth FPS",
-        "description": "Frames per second of the depth stream",
+        "description": "Frames per second of the depth stream (5)",
         "parameter_name": "depth_fps",
         "parameter_type": "int",
         "default_value": null,
@@ -132,7 +132,7 @@
       },
       {
         "display_name": "Threshold Filter Max",
-        "description": "Max value of the threshold filter [mm]. Values in [0-16000].",
+        "description": "Max value of the threshold filter [mm]. Values in [0, 16000].",
         "parameter_name": "threshold_filter_max",
         "parameter_type": "int",
         "default_value": null,
@@ -141,7 +141,7 @@
       },
       {
         "display_name": "Threshold Filter Min",
-        "description": "Min value of the threshold filter [mm]. Values in [0-16000], account for the minimum Z depth.",
+        "description": "Min value of the threshold filter [mm]. Values in [0, 16000], account for the minimum Z depth.",
         "parameter_name": "threshold_filter_min",
         "parameter_type": "int",
         "default_value": null,
@@ -157,7 +157,7 @@
       },
       {
         "display_name": "Temporal Filter Weight",
-        "description": "Weight of the temporal filter",
+        "description": "Weight for the current frame value [0.1, 1]",
         "parameter_name": "temporal_filter_weight",
         "parameter_type": "double",
         "default_value": null,
@@ -166,7 +166,7 @@
       },
       {
         "display_name": "Temporal Filter Diff Threshold",
-        "description": "Diff threshold of the temporal filter",
+        "description": "Threshold for the non-motion noise [0.1, 1]",
         "parameter_name": "temporal_filter_diff_threshold",
         "parameter_type": "double",
         "default_value": null,
@@ -182,7 +182,7 @@
       },
       {
         "display_name": "Noise Removal Filter Min Diff",
-        "description": "Minimum difference for the noise removal filter",
+        "description": "Minimum depth difference [1, 10000]",
         "parameter_name": "noise_removal_filter_min_diff",
         "parameter_type": "int",
         "default_value": null,
@@ -191,7 +191,7 @@
       },
       {
         "display_name": "Noise Removal Filter Max Size",
-        "description": "Maximum size for the noise removal filter",
+        "description": "Maximum size of noise cluster [1, 1000]",
         "parameter_name": "noise_removal_filter_max_size",
         "parameter_type": "int",
         "default_value": null,
@@ -207,7 +207,7 @@
       },
       {
         "display_name": "Spatial Filter Alpha",
-        "description": "Alpha value for the spatial filter",
+        "description": "Weight for the current pixel value [0.1, 1]",
         "parameter_name": "spatial_filter_alpha",
         "parameter_type": "double",
         "default_value": null,
@@ -216,7 +216,7 @@
       },
       {
         "display_name": "Spatial Filter Diff Threshold",
-        "description": "Diff threshold for the spatial filter",
+        "description": "Threshold for non-edge transitions [1, 10000]",
         "parameter_name": "spatial_filter_diff_threshold",
         "parameter_type": "int",
         "default_value": null,
@@ -225,7 +225,7 @@
       },
       {
         "display_name": "Spatial Filter Magnitude",
-        "description": "Magnitude for the spatial filter",
+        "description": "Number of filtering iterations [1, 5]",
         "parameter_name": "spatial_filter_magnitude",
         "parameter_type": "int",
         "default_value": null,
@@ -234,7 +234,7 @@
       },
       {
         "display_name": "Spatial Filter Radius",
-        "description": "Radius for the spatial filter",
+        "description": "Maximum radius of holes in depth image to be filled [0, 8]",
         "parameter_name": "spatial_filter_radius",
         "parameter_type": "int",
         "default_value": null,
@@ -250,10 +250,10 @@
       },
       {
         "display_name": "Hole Filling Filter Mode",
-        "description": "Mode for the hole filling filter. Choose between FILL_TOP, FILL_NEAREST, FILL_FAREST.",
+        "description": "Mode for the hole filling filter (FILL_TOP, FILL_NEAREST, FILL_FAREST)",
         "parameter_name": "hole_filling_filter_mode",
         "parameter_type": "string",
-        "default_value": "FILL_TOP",
+        "default_value": null,
         "internal": true
       }      
     ],
