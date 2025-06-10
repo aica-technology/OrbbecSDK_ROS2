@@ -133,7 +133,7 @@
       },
       {
         "display_name": "Threshold Filter Max",
-        "description": "Max value of the threshold filter (between 0 and 16000) [mm]. Remember to account for the minimum Z depth, check the documentation for more details.",
+        "description": "Max value of the threshold filter (between 0 and 16000) [mm]. A value below the minimum Z depth (check the camera documentation for more details) will result in an empty image.",
         "parameter_name": "threshold_filter_max",
         "parameter_type": "int",
         "default_value": null,
@@ -142,7 +142,7 @@
       },
       {
         "display_name": "Threshold Filter Min",
-        "description": "Min value of the threshold filter (between 0 and 16000) [mm]. Remember to account for the minimum Z depth, check the documentation for more details.",
+        "description": "Min value of the threshold filter (between 0 and 16000) [mm]",
         "parameter_name": "threshold_filter_min",
         "parameter_type": "int",
         "default_value": null,
