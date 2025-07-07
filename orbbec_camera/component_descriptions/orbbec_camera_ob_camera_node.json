@@ -103,15 +103,15 @@
         "internal": true
       },
       {
-        "display_name": "Enable Alignement",
-        "description": "Enable the alignement of the color and depth image",
+        "display_name": "Enable Alignment",
+        "description": "Enable the alignment of the color and depth image",
         "parameter_name": "depth_registration",
         "parameter_type": "bool",
         "default_value": "false"
       },
       {
-        "display_name": "Alignement Mode",
-        "description": "Alignement mode for color and depth image (HW or SW)",
+        "display_name": "Alignment Mode",
+        "description": "Alignment mode for color and depth image (HW or SW)",
         "parameter_name": "align_mode",
         "parameter_type": "string",
         "default_value": "HW"
