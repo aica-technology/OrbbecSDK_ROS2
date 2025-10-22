@@ -255,7 +255,8 @@
         "parameter_name": "hole_filling_filter_mode",
         "parameter_type": "string",
         "default_value": null,
-        "internal": true
+        "internal": true,
+        "optional": true
       }      
     ],
     "outputs": [
