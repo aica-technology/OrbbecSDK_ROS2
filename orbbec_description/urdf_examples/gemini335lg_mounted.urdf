@@ -304,5 +304,4 @@
     <child link="camera_mounting_tool"/>
     <axis xyz="0 0 0"/>
   </joint>
-
 </robot>
