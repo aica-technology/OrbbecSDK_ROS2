@@ -1,0 +1,3 @@
+gemini335lg_mounted.urdf:
+  name: "Orbbec Gemini335Lg with mounting"
+  description: "Orbbec Gemini335Lg depth camera with a mounting bracket for attaching to ISO flange."
