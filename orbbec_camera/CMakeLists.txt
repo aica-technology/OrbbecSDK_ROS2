@@ -22,7 +22,7 @@ set(dependencies
     Eigen3
     builtin_interfaces
     cv_bridge
-    backward_ros
+    # backward_ros # See below
     camera_info_manager
     image_transport
     image_publisher
@@ -43,11 +43,22 @@ set(dependencies
     statistics_msgs
     yaml-cpp
     camera_calibration_parsers
+    nlohmann_json
 )
 
 foreach(dep IN LISTS dependencies)
     find_package(${dep} REQUIRED)
 endforeach()
+
+# due to package-builder's setup, we need to force the suffix
+# so we can find the global dw shared library instead of the scoped static one
+# this is because libdw is already installed globally and doesn't get picked up by our isolation system
+SET(_BK_CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
+SET(CMAKE_FIND_LIBRARY_SUFFIXES "-0.190.so" ".so")
+find_package(backward_ros REQUIRED)
+SET(CMAKE_FIND_LIBRARY_SUFFIXES ${_BK_CMAKE_FIND_LIBRARY_SUFFIXES})
+# this is required for ament and such
+list(APPEND dependencies backward_ros)
 
 find_package(PkgConfig REQUIRED)
 find_package(OpenSSL REQUIRED)
@@ -63,6 +74,9 @@ if(USE_RK_HW_DECODER)
         message("librga is not found, use libyuv instead")
     endif()
 endif()
+
+include(InstallAicaDescriptions)
+install_aica_descriptions(./component_descriptions ${CMAKE_INSTALL_PREFIX}/component_descriptions)
 
 execute_process(COMMAND uname -m OUTPUT_VARIABLE MACHINES)
 execute_process(COMMAND getconf LONG_BIT OUTPUT_VARIABLE MACHINES_BIT)
@@ -98,6 +112,7 @@ endif()
 set(COMMON_INCLUDE_DIRS
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include> $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include> ${ORBBEC_INCLUDE_DIR} ${OpenCV_INCLUDED_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/tools
+    ${BACKWARD_INCLUDE_DIRS}
 )
 
 set(COMMON_LIBRARIES
@@ -108,8 +123,9 @@ set(COMMON_LIBRARIES
     -L${ORBBEC_LIBS_DIR}
     Threads::Threads
     -lrt
-    -ldw
     yaml-cpp
+    ${BACKWARD_LIBRARIES}
+    nlohmann_json::nlohmann_json
 )
 if(USE_RK_HW_DECODER)
     list(APPEND COMMON_LIBRARIES ${RK_MPP_LIBRARIES} ${RGA_LIBRARIES})
