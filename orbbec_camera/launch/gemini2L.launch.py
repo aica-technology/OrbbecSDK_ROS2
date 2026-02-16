@@ -39,6 +39,8 @@ def generate_launch_description():
         DeclareLaunchArgument("enable_color_auto_white_balance", default_value="true"),
         DeclareLaunchArgument("color_white_balance", default_value="-1"),
         DeclareLaunchArgument("color_brightness", default_value="-1"),
+        DeclareLaunchArgument('enable_color_decimation_filter', default_value='false'),
+        DeclareLaunchArgument('color_decimation_filter_scale', default_value='-1'),
         DeclareLaunchArgument("depth_width", default_value="1280"),
         DeclareLaunchArgument("depth_height", default_value="800"),
         DeclareLaunchArgument("depth_fps", default_value="30"),
@@ -67,23 +69,24 @@ def generate_launch_description():
         DeclareLaunchArgument("enable_gyro", default_value="false"),
         DeclareLaunchArgument("gyro_rate", default_value="100hz"),
         DeclareLaunchArgument("gyro_range", default_value="1000dps"),
-        DeclareLaunchArgument("liner_accel_cov", default_value="0.01"),
+        DeclareLaunchArgument("linear_accel_cov", default_value="0.01"),
         DeclareLaunchArgument("angular_vel_cov", default_value="0.01"),
         DeclareLaunchArgument("publish_tf", default_value="true"),
         DeclareLaunchArgument("tf_publish_rate", default_value="0.0"),
         DeclareLaunchArgument("ir_info_url", default_value=""),
         DeclareLaunchArgument("color_info_url", default_value=""),
         DeclareLaunchArgument("log_level", default_value="none"),
+        DeclareLaunchArgument("log_file_name", default_value=""),
         DeclareLaunchArgument("enable_publish_extrinsic", default_value="false"),
         DeclareLaunchArgument("enable_d2c_viewer", default_value="false"),
-        DeclareLaunchArgument('disaparity_to_depth_mode', default_value='SW'),
+        DeclareLaunchArgument('disparity_to_depth_mode', default_value='SW'),
         DeclareLaunchArgument("enable_ldp", default_value="true"),
         DeclareLaunchArgument('enable_decimation_filter', default_value='false'),
         DeclareLaunchArgument('enable_threshold_filter', default_value='false'),
         DeclareLaunchArgument('enable_noise_removal_filter', default_value='true'),
         DeclareLaunchArgument('enable_spatial_filter', default_value='false'),
         DeclareLaunchArgument('enable_temporal_filter', default_value='false'),
-        DeclareLaunchArgument('enable_disaparity_to_depth', default_value='true'),
+        DeclareLaunchArgument('enable_disparity_to_depth', default_value='true'),
         DeclareLaunchArgument('enable_hole_filling_filter', default_value='false'),
         DeclareLaunchArgument('decimation_filter_scale', default_value='-1'),
         DeclareLaunchArgument('threshold_filter_max', default_value='-1'),
@@ -133,7 +136,7 @@ def generate_launch_description():
                     name="ob_camera_node",
                     namespace=LaunchConfiguration("camera_name"),
                     parameters=parameters,
-                    output="screen",
+                    output="log",
                 )
             ]
         )
@@ -156,7 +159,7 @@ def generate_launch_description():
             composable_node_descriptions=[
                 compose_node,
             ],
-            output="screen",
+            output="log",
         )
         # Launch description
         ld = LaunchDescription(

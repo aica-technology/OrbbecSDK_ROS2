@@ -67,13 +67,14 @@ def generate_launch_description():
         DeclareLaunchArgument("enable_gyro", default_value="false"),
         DeclareLaunchArgument("gyro_rate", default_value="200hz"),
         DeclareLaunchArgument("gyro_range", default_value="1000dps"),
-        DeclareLaunchArgument("liner_accel_cov", default_value="0.01"),
+        DeclareLaunchArgument("linear_accel_cov", default_value="0.01"),
         DeclareLaunchArgument("angular_vel_cov", default_value="0.01"),
         DeclareLaunchArgument("publish_tf", default_value="true"),
         DeclareLaunchArgument("tf_publish_rate", default_value="0.0"),
         DeclareLaunchArgument("ir_info_url", default_value=""),
         DeclareLaunchArgument("color_info_url", default_value=""),
         DeclareLaunchArgument("log_level", default_value="none"),
+        DeclareLaunchArgument("log_file_name", default_value=""),
         DeclareLaunchArgument("enable_publish_extrinsic", default_value="false"),
         DeclareLaunchArgument("enable_d2c_viewer", default_value="false"),
         DeclareLaunchArgument("enable_ldp", default_value="true"),
@@ -105,9 +106,11 @@ def generate_launch_description():
         DeclareLaunchArgument("ordered_pc", default_value="false"),
         DeclareLaunchArgument("enable_depth_scale", default_value="true"),
         DeclareLaunchArgument("align_mode", default_value="SW"),
+        DeclareLaunchArgument('align_target_stream', default_value='COLOR'),# COLOR or DEPTH
         DeclareLaunchArgument("laser_energy_level", default_value="-1"),
         DeclareLaunchArgument("enable_heartbeat", default_value="false"),
         DeclareLaunchArgument("time_domain", default_value="global"),
+        DeclareLaunchArgument('device_preset', default_value='Custom'),
     ]
 
     # Node configuration
@@ -124,7 +127,7 @@ def generate_launch_description():
                     name="ob_camera_node",
                     namespace=LaunchConfiguration("camera_name"),
                     parameters=parameters,
-                    output="screen",
+                    output="log",
                 )
             ]
         )
@@ -147,7 +150,7 @@ def generate_launch_description():
             composable_node_descriptions=[
                 compose_node,
             ],
-            output="screen",
+            output="log",
         )
         # Launch description
         ld = LaunchDescription(
