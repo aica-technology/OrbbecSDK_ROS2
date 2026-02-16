@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="gemini335_336Lg">
-  <link name="camera_mounting">
+  <link name="camera_mounting_flange">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -17,9 +17,9 @@
       </geometry>
     </collision>
   </link>
-  <joint name="camera_mounting_link" type="fixed">
+  <joint name="camera_mounting_link_joint" type="fixed">
     <origin rpy="3.1415 -1.5708 0" xyz="0.131 -0.048 0.055"/>
-    <parent link="camera_mounting"/>
+    <parent link="camera_mounting_flange"/>
     <child link="camera_link"/>
     <axis xyz="0 0 0"/>
   </joint>
@@ -297,4 +297,12 @@
     <child link="camera_depth_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
+  <link name="camera_mounting_tool" />
+  <joint name="camera_mounting_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.025"/>
+    <parent link="camera_mounting_flange"/>
+    <child link="camera_mounting_tool"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
 </robot>
