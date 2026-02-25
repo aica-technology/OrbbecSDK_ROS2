@@ -256,6 +256,12 @@ parameters:
     validation:
       options:
         - [FILL_TOP, FILL_NEAREST, FILL_FAREST]
+  - display_name: Publish TFs
+    description: Publish TFs from camera extrinsics
+    parameter_name: publish_tf
+    parameter_type: bool
+    default_value: false
+    internal: true
 outputs:
   - display_name: Color Image
     description: Raw color image stream
