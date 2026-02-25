@@ -57,6 +57,9 @@ parameters:
     parameter_name: color_format
     parameter_type: string
     default_value: MJPG
+    validation:
+      options:
+        - [MJPG, MJPEG, YUYV, YUYV2, UYVY, NV12, NV21, H264, H265, GRAY, HEVC, I420, RGB888, RGB, BGR, BGRA, YV12, RGBA]
     internal: true
   - display_name: Depth Width
     description: Width of the depth image. Check the camera's documentation for the available resolution profiles.
@@ -81,6 +84,9 @@ parameters:
     parameter_name: depth_format
     parameter_type: string
     default_value: Y16
+    validation:
+      options:
+        - [Y16,Y8, Y10, Y11, Y12, REL, Y14, RVL, Z16, RW16, Y12C4]
     internal: true
   - display_name: Enable Alignment
     description: Enable the alignment of the color and depth image
