@@ -260,7 +260,7 @@ parameters:
     description: Publish TFs from camera extrinsics
     parameter_name: publish_tf
     parameter_type: bool
-    default_value: false
+    default_value: true
     internal: true
 outputs:
   - display_name: Color Image
