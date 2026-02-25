@@ -13,7 +13,7 @@
         "description": "Name of the camera, used to set the frame names",
         "parameter_name": "camera_name",
         "parameter_type": "string",
-        "default_value": "orbbec_camera"
+        "default_value": "camera"
       },
       {
         "display_name": "Serial Number",
