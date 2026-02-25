@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="gemini335_336Lg">
-  <link name="orbbec_camera_mounting_flange">
+  <link name="camera_mounting_flange">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -17,13 +17,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_mounting_link_joint" type="fixed">
+  <joint name="camera_mounting_link_joint" type="fixed">
     <origin rpy="3.1415 -1.5708 0" xyz="0.131 -0.048 0.055"/>
-    <parent link="orbbec_camera_mounting_flange"/>
-    <child link="orbbec_camera_link"/>
+    <parent link="camera_mounting_flange"/>
+    <child link="camera_link"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_link">
+  <link name="camera_link">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00289247601040677 -0.0017677758607654 0.0142809419586764"/>
       <mass value="0.0325749377048239"/>
@@ -45,7 +45,7 @@
       </geometry>
     </collision>
   </link>
-  <link name="orbbec_camera_bottom_screw_frame">
+  <link name="camera_bottom_screw_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.000509549530802827 -0.000723575304053956 0.0135324058538218"/>
       <mass value="0.00667731245337829"/>
@@ -67,13 +67,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_bottom_screw_joint" type="fixed">
+  <joint name="camera_bottom_screw_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.0117149999999995 -0.0475 -0.0143111800025738"/>
-    <parent link="orbbec_camera_link"/>
-    <child link="orbbec_camera_bottom_screw_frame"/>
+    <parent link="camera_link"/>
+    <child link="camera_bottom_screw_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_left_ir_frame">
+  <link name="camera_left_ir_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00158020638644197 -1.72113892998871E-08 -1.52265896555797E-07"/>
       <mass value="0.000453167757456349"/>
@@ -95,13 +95,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_left_ir_joint" type="fixed">
+  <joint name="camera_left_ir_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="orbbec_camera_depth_frame"/>
-    <child link="orbbec_camera_left_ir_frame"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_left_ir_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_left_ir_optical_frame">
+  <link name="camera_left_ir_optical_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="1.72113892998871E-08 1.52265896555812E-07 -0.00158020638644197"/>
       <mass value="0.000453167757456349"/>
@@ -123,13 +123,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_left_ir_optical_joint" type="fixed">
+  <joint name="camera_left_ir_optical_joint" type="fixed">
     <origin rpy="-1.5707963267949 0 -1.5707963267949" xyz="0 0 0"/>
-    <parent link="orbbec_camera_left_ir_frame"/>
-    <child link="orbbec_camera_left_ir_optical_frame"/>
+    <parent link="camera_left_ir_frame"/>
+    <child link="camera_left_ir_optical_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_color_frame">
+  <link name="camera_color_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00158020000774523 -2.01759723546246E-08 -1.59601568159221E-07"/>
       <mass value="0.000453166139060251"/>
@@ -151,13 +151,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_color_joint" type="fixed">
+  <joint name="camera_color_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.023749999701976776 0"/>
-    <parent link="orbbec_camera_depth_frame"/>
-    <child link="orbbec_camera_color_frame"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_color_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_color_optical_frame">
+  <link name="camera_color_optical_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="2.01759723546246E-08 1.59601568105527E-07 -0.00158020000774523"/>
       <mass value="0.000453166139060251"/>
@@ -179,13 +179,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_color_optical_joint" type="fixed">
+  <joint name="camera_color_optical_joint" type="fixed">
     <origin rpy="-1.57079632679486 0 -1.5707963267949" xyz="0 0 0"/>
-    <parent link="orbbec_camera_color_frame"/>
-    <child link="orbbec_camera_color_optical_frame"/>
+    <parent link="camera_color_frame"/>
+    <child link="camera_color_optical_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_right_ir_frame">
+  <link name="camera_right_ir_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00158020638644197 -1.7211389306826E-08 -1.5226589655147E-07"/>
       <mass value="0.00045316775745635"/>
@@ -207,13 +207,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_right_ir_joint" type="fixed">
+  <joint name="camera_right_ir_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.095 0"/>
-    <parent link="orbbec_camera_depth_frame"/>
-    <child link="orbbec_camera_right_ir_frame"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_right_ir_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_right_ir_optical_frame">
+  <link name="camera_right_ir_optical_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="1.7211389306826E-08 1.52265896497699E-07 -0.00158020638644197"/>
       <mass value="0.00045316775745635"/>
@@ -235,13 +235,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_right_ir_optical_joint" type="fixed">
+  <joint name="camera_right_ir_optical_joint" type="fixed">
     <origin rpy="-1.57079632679486 0 -1.5707963267949" xyz="0 0 0"/>
-    <parent link="orbbec_camera_right_ir_frame"/>
-    <child link="orbbec_camera_right_ir_optical_frame"/>
+    <parent link="camera_right_ir_frame"/>
+    <child link="camera_right_ir_optical_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_imu_frame">
+  <link name="camera_imu_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.000485747949726976 -9.01982197890061E-07 -5.03896938954429E-07"/>
       <mass value="1.12241987710975E-05"/>
@@ -263,13 +263,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_imu_joint" type="fixed">
+  <joint name="camera_imu_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.01425 -0.011312 -0.0006871"/>
-    <parent link="orbbec_camera_depth_frame"/>
-    <child link="orbbec_camera_imu_frame"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_imu_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_depth_frame">
+  <link name="camera_depth_frame">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00158020638644197 -1.72113892998871E-08 -1.52265896555784E-07"/>
       <mass value="0.000453167757456349"/>
@@ -291,17 +291,17 @@
       </geometry>
     </collision>
   </link>
-  <joint name="orbbec_camera_depth_joint" type="fixed">
+  <joint name="camera_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="orbbec_camera_link"/>
-    <child link="orbbec_camera_depth_frame"/>
+    <parent link="camera_link"/>
+    <child link="camera_depth_frame"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <link name="orbbec_camera_mounting_tool" />
-  <joint name="orbbec_camera_mounting_joint" type="fixed">
+  <link name="camera_mounting_tool" />
+  <joint name="camera_mounting_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.025"/>
-    <parent link="orbbec_camera_mounting_flange"/>
-    <child link="orbbec_camera_mounting_tool"/>
+    <parent link="camera_mounting_flange"/>
+    <child link="camera_mounting_tool"/>
     <axis xyz="0 0 0"/>
   </joint>
 </robot>
