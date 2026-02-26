@@ -77,6 +77,7 @@ endif()
 
 include(InstallAicaDescriptions)
 install_aica_descriptions(./component_descriptions ${CMAKE_INSTALL_PREFIX}/component_descriptions)
+install_aica_descriptions(./extension_descriptions ${CMAKE_INSTALL_PREFIX}/extension_descriptions)
 
 execute_process(COMMAND uname -m OUTPUT_VARIABLE MACHINES)
 execute_process(COMMAND getconf LONG_BIT OUTPUT_VARIABLE MACHINES_BIT)

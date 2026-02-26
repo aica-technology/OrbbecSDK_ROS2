@@ -13,7 +13,7 @@
         "description": "Name of the camera, used to set the frame names",
         "parameter_name": "camera_name",
         "parameter_type": "string",
-        "default_value": "orbbec_camera"
+        "default_value": "camera"
       },
       {
         "display_name": "Serial Number",
@@ -257,6 +257,14 @@
         "default_value": null,
         "internal": true,
         "optional": true
+      },
+      {
+        "display_name": "Publish TFs",
+        "description": "Publish TFs from camera extrinsics",
+        "parameter_name": "publish_tf",
+        "parameter_type": "bool",
+        "default_value": "true",
+        "internal": true
       }
     ],
     "outputs": [
