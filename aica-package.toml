@@ -1,0 +1,29 @@
+#syntax=ghcr.io/aica-technology/package-builder:v1.4.0
+
+[metadata]
+version = "1.0.0"
+description = """
+This collection supports a range of Orbbec camera models, including the Gemini 33X models, Gemini 435Le, Gemini 2 and
+2L, Femto Bolt and Mega, and Astra 2. It features a description package and a component for streaming both color and
+depth images.
+
+The component is only supported on Linux and requires special udev rules on the host, check docs.aica.tech or contact
+support@aica.tech to learn more about this.
+"""
+
+[metadata.collection]
+name = "collections/orbbec"
+ros-name = "orbbec_collection"
+
+[build]
+type = "ros"
+image = "v2.0.6-jazzy"
+
+[build.packages.orbbec_camera_msgs]
+source = "orbbec_camera_msgs"
+
+[build.packages.orbbec_description]
+source = "orbbec_description"
+
+[build.packages.orbbec_camera]
+source = "orbbec_camera"
