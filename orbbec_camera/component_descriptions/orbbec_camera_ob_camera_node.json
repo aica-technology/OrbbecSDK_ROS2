@@ -265,6 +265,51 @@
         "parameter_type": "bool",
         "default_value": "true",
         "internal": true
+      },
+      {
+        "display_name": "Enable Left IR",
+        "description": "Enable the left infrared camera",
+        "parameter_name": "enable_left_ir",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Enable Right IR",
+        "description": "Enable the right infrared camera",
+        "parameter_name": "enable_right_ir",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Enable IR",
+        "description": "Enable the infrared camera",
+        "parameter_name": "enable_ir",
+        "parameter_type": "bool",
+        "default_value": "false"
+      },
+      {
+        "display_name": "Left IR Format",
+        "description": "Format of the left infrared image",
+        "parameter_name": "left_ir_format",
+        "parameter_type": "string",
+        "default_value": "Y16",
+        "internal": true
+      },
+      {
+        "display_name": "Right IR Format",
+        "description": "Format of the right infrared image",
+        "parameter_name": "right_ir_format",
+        "parameter_type": "string",
+        "default_value": "Y16",
+        "internal": true
+      },
+      {
+        "display_name": "IR Format",
+        "description": "Format of the infrared image",
+        "parameter_name": "ir_format",
+        "parameter_type": "string",
+        "default_value": "Y16",
+        "internal": true
       }
     ],
     "outputs": [
@@ -293,6 +338,48 @@
         "display_name": "Depth Camera Info",
         "description": "Depth camera intrinsics",
         "signal_name": "depth_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
+      },
+      {
+        "display_name": "Left IR Image",
+        "description": "Left infrared image stream",
+        "signal_name": "left_ir_image",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::Image"
+      },
+      {
+        "display_name": "Left IR Camera Info",
+        "description": "Left infrared camera intrinsics",
+        "signal_name": "left_ir_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
+      },
+      {
+        "display_name": "Right IR Image",
+        "description": "Right infrared image stream",
+        "signal_name": "right_ir_image",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::Image"
+      },
+      {
+        "display_name": "Right IR Camera Info",
+        "description": "Right infrared camera intrinsics",
+        "signal_name": "right_ir_camera_info",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::CameraInfo"
+      },
+      {
+        "display_name": "IR Image",
+        "description": "Infrared image stream",
+        "signal_name": "ir_image",
+        "signal_type": "other",
+        "custom_signal_type": "sensor_msgs::msg::Image"
+      },
+      {
+        "display_name": "IR Camera Info",
+        "description": "Infrared camera intrinsics",
+        "signal_name": "ir_camera_info",
         "signal_type": "other",
         "custom_signal_type": "sensor_msgs::msg::CameraInfo"
       }
