@@ -86,7 +86,7 @@ parameters:
     default_value: Y16
     validation:
       options:
-        - [Y16,Y8, Y10, Y11, Y12, REL, Y14, RVL, Z16, RW16, Y12C4]
+        - [Y16, Y8, Y10, Y11, Y12, REL, Y14, RVL, Z16, RW16, Y12C4]
     internal: true
   - display_name: Enable Alignment
     description: Enable the alignment of the color and depth image
@@ -289,18 +289,27 @@ parameters:
     parameter_type: string
     default_value: Y16
     internal: true
+    validation:
+      options:
+        - [Y16, Y8, Y10, Y11, Y12, REL, Y14, RVL, Z16, RW16, Y12C4]
   - display_name: Right IR Format
     description: Format of the right infrared image
     parameter_name: right_ir_format
     parameter_type: string
     default_value: Y16
     internal: true
+    validation:
+      options:
+        - [Y16, Y8, Y10, Y11, Y12, REL, Y14, RVL, Z16, RW16, Y12C4]
   - display_name: IR Format
     description: Format of the infrared image
     parameter_name: ir_format
     parameter_type: string
     default_value: Y16
     internal: true
+    validation:
+      options:
+        - [Y16, Y8, Y10, Y11, Y12, REL, Y14, RVL, Z16, RW16, Y12C4]
 outputs:
   - display_name: Color Image
     description: Raw color image stream
