@@ -310,6 +310,22 @@
         "parameter_type": "string",
         "default_value": "Y16",
         "internal": true
+      },
+      {
+        "display_name": "Left IR Width",
+        "description": "Width of the left infrared image. Check the camera's documentation for the available resolution profiles.",
+        "parameter_name": "left_ir_width",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Left IR Height",
+        "description": "Height of the left infrared image. Check the camera's documentation for the available resolution profiles.",
+        "parameter_name": "left_ir_height",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
       }
     ],
     "outputs": [
