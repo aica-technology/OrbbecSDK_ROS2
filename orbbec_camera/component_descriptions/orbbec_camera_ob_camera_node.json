@@ -326,6 +326,38 @@
         "parameter_type": "int",
         "default_value": null,
         "optional": true
+      },
+      {
+        "display_name": "Right IR Width",
+        "description": "Width of the right infrared image. Check the camera's documentation for the available resolution profiles.",
+        "parameter_name": "right_ir_width",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "Right IR Height",
+        "description": "Height of the right infrared image. Check the camera's documentation for the available resolution profiles.",
+        "parameter_name": "right_ir_height",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "IR Width",
+        "description": "Width of the infrared image. Check the camera's documentation for the available resolution profiles.",
+        "parameter_name": "ir_width",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
+      },
+      {
+        "display_name": "IR Height",
+        "description": "Height of the infrared image. Check the camera's documentation for the available resolution profiles.",
+        "parameter_name": "ir_height",
+        "parameter_type": "int",
+        "default_value": null,
+        "optional": true
       }
     ],
     "outputs": [
