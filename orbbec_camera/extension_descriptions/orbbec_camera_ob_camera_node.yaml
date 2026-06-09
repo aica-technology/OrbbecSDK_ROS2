@@ -59,7 +59,24 @@ parameters:
     default_value: MJPG
     validation:
       options:
-        - [MJPG, MJPEG, YUYV, YUYV2, UYVY, NV12, NV21, H264, H265, GRAY, HEVC, I420, RGB888, RGB, BGR, BGRA, YV12, RGBA]
+        - MJPG,
+          MJPEG,
+          YUYV,
+          YUYV2,
+          UYVY,
+          NV12,
+          NV21,
+          H264,
+          H265,
+          GRAY,
+          HEVC,
+          I420,
+          RGB888,
+          RGB,
+          BGR,
+          BGRA,
+          YV12,
+          RGBA
     internal: true
   - display_name: Depth Width
     description: Width of the depth image. Check the camera's documentation for the available resolution profiles.
@@ -86,7 +103,17 @@ parameters:
     default_value: Y16
     validation:
       options:
-        - [Y16,Y8, Y10, Y11, Y12, REL, Y14, RVL, Z16, RW16, Y12C4]
+        - Y16
+        - Y8
+        - Y10
+        - Y11
+        - Y12
+        - REL
+        - Y14
+        - RVL
+        - Z16
+        - RW16
+        - Y12C4
     internal: true
   - display_name: Enable Alignment
     description: Enable the alignment of the color and depth image
@@ -100,7 +127,8 @@ parameters:
     default_value: HW
     validation:
       options:
-        - [HW, SW]
+        - HW
+        - SW
   - display_name: Alignment Target Stream
     description: Target stream to align with (COLOR or DEPTH)
     parameter_name: align_target_stream
@@ -109,7 +137,8 @@ parameters:
     internal: true
     validation:
       options:
-        - [COLOR, DEPTH]
+        - COLOR
+        - DEPTH
   - display_name: Enable Threshold Filter
     description: Enable the depth threshold filter (if enabled, set threshold_filter_max and threshold_filter_min)
     parameter_name: enable_threshold_filter
@@ -261,13 +290,124 @@ parameters:
     optional: true
     validation:
       options:
-        - [FILL_TOP, FILL_NEAREST, FILL_FAREST]
+        - FILL
+        - TOP
+        - FILL_NEAREST
+        - FILL_FAREST
   - display_name: Publish TFs
     description: Publish TFs from camera extrinsics
     parameter_name: publish_tf
     parameter_type: bool
     default_value: true
     internal: true
+  - display_name: Enable Left IR
+    description: Enable the left infrared camera
+    parameter_name: enable_left_ir
+    parameter_type: bool
+    default_value: false
+  - display_name: Enable Right IR
+    description: Enable the right infrared camera
+    parameter_name: enable_right_ir
+    parameter_type: bool
+    default_value: false
+  - display_name: Enable IR
+    description: Enable the infrared camera
+    parameter_name: enable_ir
+    parameter_type: bool
+    default_value: false
+  - display_name: Left IR Format
+    description: Format of the left infrared image
+    parameter_name: left_ir_format
+    parameter_type: string
+    default_value: Y16
+    internal: true
+    validation:
+      options:
+        - Y16
+        - Y8
+        - Y10
+        - Y11
+        - Y12
+        - REL
+        - Y14
+        - RVL
+        - Z16
+        - RW16
+        - Y12C4
+  - display_name: Right IR Format
+    description: Format of the right infrared image
+    parameter_name: right_ir_format
+    parameter_type: string
+    default_value: Y16
+    internal: true
+    validation:
+      options:
+        - Y16
+        - Y8
+        - Y10
+        - Y11
+        - Y12
+        - REL
+        - Y14
+        - RVL
+        - Z16
+        - RW16
+        - Y12C4
+  - display_name: IR Format
+    description: Format of the infrared image
+    parameter_name: ir_format
+    parameter_type: string
+    default_value: Y16
+    internal: true
+    validation:
+      options:
+        - Y16
+        - Y8
+        - Y10
+        - Y11
+        - Y12
+        - REL
+        - Y14
+        - RVL
+        - Z16
+        - RW16
+        - Y12C4
+  - display_name: Left IR Width
+    description: Width of the left infrared image. Check the camera's documentation for the available resolution profiles.
+    parameter_name: left_ir_width
+    parameter_type: int
+    default_value: null
+    optional: true
+  - display_name: Left IR Height
+    description: Height of the left infrared image. Check the camera's documentation for the available resolution profiles.
+    parameter_name: left_ir_height
+    parameter_type: int
+    default_value: null
+    optional: true
+  - display_name: Right IR Width
+    description: Width of the right infrared image. Check the camera's documentation for the available resolution profiles.
+    parameter_name: right_ir_width
+    parameter_type: int
+    default_value: null
+    optional: true
+  - display_name: Right IR Height
+    description: Height of the right infrared image. Check the camera's documentation for the available resolution profiles.
+    parameter_name: right_ir_height
+    parameter_type: int
+    default_value: null
+    optional: true
+  - display_name: IR Width
+    description: Width of the infrared image. Check the camera's documentation for the available resolution profiles.
+    parameter_name: ir_width
+    parameter_type: int
+    default_value: null
+    optional: true
+  - display_name: IR Height
+    description: Height of the infrared image. Check the camera's documentation for the available resolution profiles.
+    parameter_name: ir_height
+    parameter_type: int
+    default_value: null
+    optional: true
 outputs:
   - display_name: Color Image
     description: Raw color image stream
@@ -287,5 +427,35 @@ outputs:
   - display_name: Depth Camera Info
     description: Depth camera intrinsics
     signal_name: depth_camera_info
+    signal_type: external
+    external_signal_type: sensor_msgs::msg::CameraInfo
+  - display_name: Left IR Image
+    description: Left infrared image stream
+    signal_name: left_ir_image
+    signal_type: external
+    external_signal_type: sensor_msgs::msg::Image
+  - display_name: Left IR Camera Info
+    description: Left infrared camera intrinsics
+    signal_name: left_ir_camera_info
+    signal_type: external
+    external_signal_type: sensor_msgs::msg::CameraInfo
+  - display_name: Right IR Image
+    description: Right infrared image stream
+    signal_name: right_ir_image
+    signal_type: external
+    external_signal_type: sensor_msgs::msg::Image
+  - display_name: Right IR Camera Info
+    description: Right infrared camera intrinsics
+    signal_name: right_ir_camera_info
+    signal_type: external
+    external_signal_type: sensor_msgs::msg::CameraInfo
+  - display_name: IR Image
+    description: Infrared image stream
+    signal_name: ir_image
+    signal_type: external
+    external_signal_type: sensor_msgs::msg::Image
+  - display_name: IR Camera Info
+    description: Infrared camera intrinsics
+    signal_name: ir_camera_info
     signal_type: external
     external_signal_type: sensor_msgs::msg::CameraInfo
